@@ -1,0 +1,44 @@
+.mainBox {
+    padding: 20px;
+    font-size: 30px;
+    line-height: 200%;
+    text-align: center;
+}
+
+.mainBox span {
+    display: block;
+    animation-fill-mode: backwards;
+}
+
+.line1 {
+    animation: slideToTop .5s ease-out 0.5s;
+}
+
+.line2 {
+    animation: slideToTop .5s ease-out 1s;
+}
+
+.line3 {
+    animation: slideToTop .5s ease-out 1.5s;
+}
+
+@keyframes slideToTop {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+.beginBtn:link,
+.beginBtn:visited {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 20px;
+    width: 200px;
+}
