@@ -32,7 +32,7 @@ function App(): React.ReactElement {
          }} />;
 
       if(step === Step.RESULTS)
-         return <ResultsPage />;
+         return <ResultsPage results={results as Answer[]} />;
    };
 
    return (

@@ -60,3 +60,16 @@
   position: absolute;
   bottom: 10px;
 }
+
+.errorBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ff0000;
+}
+
+.errorBox span {
+  display: block;
+}

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import useQuestions, { Question } from '../sdk/hooks/useQuestions';
+import htmlDecode from '../utils/htmlDecode';
 
 import styles from './GamePage.module.css';
 
 const GamePage: React.FC<Props> = ({onGameEnded}): React.ReactElement => {
-   const {questions, loading} = useQuestions();
+   const {questions, loading, error} = useQuestions();
    const [questionNumber, setQuestionNumber] = useState(0);
    const [answers, setAnswers] = useState<Answer[]>([]);
 
@@ -16,13 +17,19 @@ const GamePage: React.FC<Props> = ({onGameEnded}): React.ReactElement => {
    };
 
    useEffect(() => {
-      if(!loading && (questionNumber >= 9 || questionNumber >= questions.length - 1)) {
+      if(!loading && !error && (questionNumber >= 10 || questionNumber >= questions.length)) {
          onGameEnded(answers);
       }
-   }, [loading, questionNumber, questions, answers]);
+   }, [loading, error, questionNumber, questions, answers]);
    
    return (
       <div className={styles.container}>
+         {error &&
+         <div className={styles.errorBox}>
+            <span>An error occurred while fetching data from the server:</span>
+            <span>{error.message}</span>
+         </div>
+         }
          {currentQuestion &&
          <>
             <div className={styles.btnsContainer}>
@@ -31,7 +38,7 @@ const GamePage: React.FC<Props> = ({onGameEnded}): React.ReactElement => {
             <div key={questionNumber} className={styles.card}>
                <span className={styles.category}>{currentQuestion.category}</span>
                <span>{htmlDecode(currentQuestion.question)}</span>
-               <span className={styles.questionNumber}>{questionNumber} of 10</span>
+               <span className={styles.questionNumber}>{questionNumber + 1} of 10</span>
             </div>
             <div className={styles.btnsContainer}>
                <a href="#" className={`btn ${styles.btnTrue}`} onClick={() => onAnswerPressed(true)}>✔️</a>
@@ -41,11 +48,6 @@ const GamePage: React.FC<Props> = ({onGameEnded}): React.ReactElement => {
       </div>
    );
 };
-
-function htmlDecode(input: string) {
-   const doc = new DOMParser().parseFromString(input, 'text/html');
-   return doc.documentElement.textContent;
-}
 
 interface Props {
    onGameEnded: (answers: Answer[]) => void;
