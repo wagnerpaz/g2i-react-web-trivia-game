@@ -26,11 +26,11 @@ body {
 }
 
 .btn:hover {
-  box-shadow: 0 10px 20px #00000033;
+  box-shadow: 0 10px 20px #00000088;
 }
 
 .btn:active {
-  box-shadow: 0 5px 10px #00000033;
+  box-shadow: 0 5px 10px #00000088;
 }
 
 .singleButton {
