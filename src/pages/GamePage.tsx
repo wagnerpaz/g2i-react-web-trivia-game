@@ -32,15 +32,13 @@ const GamePage: React.FC<Props> = ({onGameEnded}): React.ReactElement => {
          }
          {currentQuestion &&
          <>
-            <div className={styles.btnsContainer}>
-               <a href="#" className={`btn ${styles.btnFalse}`} onClick={() => onAnswerPressed(false)}>❌</a>
-            </div>
             <div key={questionNumber} className={styles.card}>
                <span className={styles.category}>{currentQuestion.category}</span>
                <span>{htmlDecode(currentQuestion.question)}</span>
                <span className={styles.questionNumber}>{questionNumber + 1} of 10</span>
             </div>
             <div className={styles.btnsContainer}>
+               <a href="#" className={`btn ${styles.btnFalse}`} onClick={() => onAnswerPressed(false)}>❌</a>
                <a href="#" className={`btn ${styles.btnTrue}`} onClick={() => onAnswerPressed(true)}>✔️</a>
             </div>
          </>
