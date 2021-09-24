@@ -1,34 +1,42 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto';
-    font-size: 20px;
+  font-family: "Roboto";
+  font-size: 20px;
 }
 
 .btn:link,
 .btn:visited {
-    display: block;
-    text-decoration: none;
-    color: #fff;
-    background-color: #63B995;
-    border-radius: 10px;
-    padding: 20px;
-    text-transform: uppercase;
-    text-align: center;
-    transition: all 0.2s;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  background-color: #63b995;
+  border-radius: 10px;
+  padding: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.2s;
 }
 
 .btn:hover {
-    box-shadow: 0 10px 20px #00000033;
+  box-shadow: 0 10px 20px #00000033;
 }
 
 .btn:active {
-    box-shadow: 0 5px 10px #00000033;
+  box-shadow: 0 5px 10px #00000033;
+}
+
+.singleButton {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 20px;
+  width: 200px;
 }
